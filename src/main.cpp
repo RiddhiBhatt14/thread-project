@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+
 using namespace std;
 
 void work(int id) {
@@ -14,10 +15,6 @@ int main() {
         t.emplace_back(work, i);
     }
     for (auto &x : t) x.join();
-    // thread feature branch update
-
     cout << "done\n";
     return 0;
-    // sync feature branch update
-
 }
