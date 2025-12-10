@@ -1,5 +1,5 @@
 #include <iostream>
-#include "thread_manager.h"
+#include "threadManager.h"
 
 using namespace std;
 

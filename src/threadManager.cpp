@@ -1,4 +1,4 @@
-#include "thread_manager.h"
+#include "threadManager.h"
 
 
 ThreadManager::ThreadManager(int n) : shared_value(0){threads.reserve(n);}
