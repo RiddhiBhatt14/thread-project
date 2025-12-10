@@ -1,20 +1,21 @@
 #include <iostream>
-#include <thread>
-#include <vector>
+#include "thread_manager.h"
 
 using namespace std;
 
-void work(int id) {
-    cout << "thread " << id << " start\n";
-    cout << "thread " << id << " end\n";
-}
-
 int main() {
-    vector<thread> t;
-    for (int i = 0; i < 5; i++) {
-        t.emplace_back(work, i);
-    }
-    for (auto &x : t) x.join();
+    int n = 100;
+    ThreadManager tm(n);
+
+    auto task = [](int id) {
+        cout << "thread " << id << " start\n";
+        cout << "thread " << id << " end\n";
+    };
+
+    tm.run(task);
+    tm.join_all();
+
+    cout << "threads finished: " << tm.get_shared_value() << "\n";
     cout << "done\n";
     return 0;
 }
